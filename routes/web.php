@@ -18,3 +18,9 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+
+// Backend Routes
+Route::prefix('backend')->namespace('Backend')->group(function(){
+	Route::get('/','DashboardController')->name('backend.dashboard');
+});
