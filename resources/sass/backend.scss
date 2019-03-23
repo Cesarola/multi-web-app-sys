@@ -11,8 +11,31 @@ body {
 	background: rgba(0, 30, 40, 1);
 	font-family: 'Montserrat', sans-serif;
 }
+body::after {
+	content: "";
+	background-image: url('/img/dashboard-bg.jpg');
+	background-repeat: no-repeat;
+	background-size: cover;
+	position: fixed;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+	z-index: -1;
+	opacity: .05;
+}
 .custom-bg-dark {
 	background: rgb(0, 36, 47);
+}
+
+#backend-login {
+	height: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: flex-start;
+	#form-login {
+		width: 320px;
+	}
 }
 
 #backend {

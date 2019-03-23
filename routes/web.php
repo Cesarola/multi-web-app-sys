@@ -22,5 +22,6 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 // Backend Routes
 Route::prefix('backend')->namespace('Backend')->group(function(){
+	Route::view('login','backend.auth.login')->name('backend.login');
 	Route::get('/','DashboardController')->name('backend.dashboard');
 });
