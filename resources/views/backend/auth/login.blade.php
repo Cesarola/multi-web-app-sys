@@ -14,27 +14,29 @@
             <h5 class="font-weight-light text-center mb-4">{{ __('Users Access') }}</h5>
             <div class="card custom-bg-dark shadow">
                 <div class="card-body p-4">
-                    <div class="form-group">
-                        <label for="email">{{ __('Email Address') }}</label>
-                        <input type="email" name="email" id="email" class="form-control border-0 shadow-sm{{ $errors->has('email') ? ' is-invalid' : '' }}" value="{{ old('email') }}">
-                        @if ($errors->has('email'))
-                            <span class="invalid-feedback" role="alert">
-                                <strong>{{ $errors->first('email') }}</strong>
-                            </span>
-                        @endif
-                    </div>
-                    <div class="form-group">
-                        <label for="password">{{ __('Password') }}</label>
-                        <input type="password" name="password" id="password" class="form-control border-0 shadow-sm{{ $errors->has('password') ? ' is-invalid' : '' }}">
-                        @if ($errors->has('password'))
-                            <span class="invalid-feedback" role="alert">
-                                <strong>{{ $errors->first('password') }}</strong>
-                            </span>
-                        @endif
-                    </div>
-                    <div class="form-group m-0 mt-4">
-                        <button class="btn bg-dark shadow-sm btn-block">{{ __('Login') }}</button>
-                    </div>
+                    <form action="{{ route('backend.login') }}" method="POST">
+                        <div class="form-group">
+                            <label for="email">{{ __('Email Address') }}</label>
+                            <input type="email" name="email" id="email" class="form-control border-0 shadow-sm{{ $errors->has('email') ? ' is-invalid' : '' }}" value="{{ old('email') }}">
+                            @if ($errors->has('email'))
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $errors->first('email') }}</strong>
+                                </span>
+                            @endif
+                        </div>
+                        <div class="form-group">
+                            <label for="password">{{ __('Password') }}</label>
+                            <input type="password" name="password" id="password" class="form-control border-0 shadow-sm{{ $errors->has('password') ? ' is-invalid' : '' }}">
+                            @if ($errors->has('password'))
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $errors->first('password') }}</strong>
+                                </span>
+                            @endif
+                        </div>
+                        <div class="form-group m-0 mt-4">
+                            <button class="btn bg-dark shadow-sm btn-block">{{ __('Login') }}</button>
+                        </div>
+                    </form>
                 </div>
             </div>
         </div>
