@@ -8,14 +8,15 @@
 	</div>
 	<div class="backend-nav">
 		<a href="" class="backend-nav-item user-dropdown">
-			<span class="d-none d-sm-inline-block">Erickson Suero</span>
+			<span class="d-none d-sm-inline-block">{{ auth()->user()->name }}</span>
 			<img src="{{ asset('img/default-avatar.png') }}" height="30px" class="mx-2">
 		</a>
 		<div class="backend-nav-menu shadow-sm animated bounceIn">
 			<a href="profile"><i class="fas fa-user"></i><span>{{ __('Profile') }}</span></a>
 			<a href="notifications"><i class="fas fa-bell"></i><span>{{ __('Notifications') }}</span></a>
 			<hr class="m-0">
-			<a href="sign-out"><i class="fas fa-sign-out-alt"></i><span>{{ __('Sign Out') }}</span></a>
+			<a href="sign-out" onclick="event.preventDefault(); document.getElementById('backend-logout-form').submit();"><i class="fas fa-sign-out-alt"></i><span>{{ __('Sign Out') }}</span></a>
+			<form id="backend-logout-form" action="{{ route('backend.logout') }}" method="POST" style="display: none;">@csrf</form>
 		</div>
 	</div>
 </nav>

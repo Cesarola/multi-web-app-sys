@@ -11,17 +11,22 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+// Route::get('/home', 'HomeController@index')->name('home');
 
 
 // Backend Routes
 Route::prefix('backend')->namespace('Backend')->group(function(){
-	Route::view('login','backend.auth.login')->name('backend.login');
+
+	// Authentication
+	Route::get('login', 'Auth\LoginController@showLoginForm')->name('backend.login');
+	Route::post('login', 'Auth\LoginController@login');
+	Route::post('logout', 'Auth\LoginController@logout')->name('backend.logout');
+
 	Route::get('/','DashboardController')->name('backend.dashboard');
 });
