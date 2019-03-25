@@ -29,4 +29,6 @@ Route::prefix('backend')->namespace('Backend')->group(function(){
 	Route::post('logout', 'Auth\LoginController@logout')->name('backend.logout');
 
 	Route::get('/','DashboardController')->name('backend.dashboard');
+
+	Route::resource('users','UserController', ['names' => 'backend.users']);
 });

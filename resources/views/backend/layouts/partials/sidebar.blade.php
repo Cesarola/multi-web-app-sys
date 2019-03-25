@@ -50,7 +50,7 @@
 		<div class="sidebar-submenu">
 			<ul>
 				<li>
-					<a href="" class="sidebar-link">
+					<a href="{{ route('backend.users.index') }}" class="sidebar-link">
 						<i class="fas fa-users"></i><span>{{ __('Users') }}</span>
 					</a>
 				</li>
